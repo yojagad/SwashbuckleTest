@@ -3,8 +3,14 @@ using System.Web.Http;
 
 namespace Swagger_Test.Controllers
 {
+    [RoutePrefix("MyController")]
+    public class MyController : BlobController<Foo>
+    {        
+    }
+    
+
     [RoutePrefix("Blob")]
-    public class BlobController : ApiController
+    public abstract class BlobController<T> : ApiController
     {
         /// <summary> Get a Bad Blob </summary>
         [Route("GetBad")]
@@ -19,5 +25,10 @@ namespace Swagger_Test.Controllers
         {
             return "Ok";
         }
+    }
+
+    public class Foo
+    {
+
     }
 }
