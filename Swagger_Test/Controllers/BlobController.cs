@@ -12,6 +12,26 @@ namespace Swagger_Test.Controllers
     [RoutePrefix("Blob")]
     public abstract class BlobController<T> : ApiController
     {
+        public enum CustomEnum
+        {
+            random,
+            notRandom
+        }
+
+        /// <summary> A nullable enum test </summary>
+        [Route("GetEnumNull")]
+        public string GetEnumNull(CustomEnum? value = null)
+        {
+            return "Nullable Enum parameter";
+        }
+
+        /// <summary> A non-null enum test </summary>
+        [Route("GetEnumNonNull")]
+        public string GetEnumNonNull(CustomEnum value)
+        {
+            return "Non-Null Enum parameter";
+        }
+
         /// <summary> Get a Bad Blob </summary>
         [Route("GetBad")]
         public string GetBad(Guid id, int? includes = null)
