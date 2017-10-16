@@ -18,6 +18,13 @@ namespace Swagger_Test.Controllers
             notRandom
         }
 
+        /// <summary> Template object test </summary>
+        [Route("GetTemplate")]
+        public string GetTemplate(AnotherFoo<T> value)
+        {
+            return "Gets a template";
+        }
+
         /// <summary> A nullable enum test </summary>
         [Route("GetEnumNull")]
         public string GetEnumNull(CustomEnum? value = null)
@@ -48,6 +55,11 @@ namespace Swagger_Test.Controllers
     }
 
     public class Foo
+    {
+
+    }
+
+    public class AnotherFoo<TV>
     {
 
     }
